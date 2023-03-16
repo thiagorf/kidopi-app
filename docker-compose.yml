@@ -1,0 +1,27 @@
+version: "3"
+
+services:
+  php:
+    build: .
+    container_name: php
+    volumes:
+      - ./src:/var/www/html/
+    ports:
+      - 80:80
+    depends_on:
+      - mysql
+  mysql:
+    image: mysql:8-debian
+    container_name: mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=db
+      - MYSQL_USER=php
+      - MYSQL_PASSWORD=php
+    volumes:
+      - data:/var/lib/mysql
+    ports:
+     - 3306:3306
+
+volumes:
+  data:
