@@ -25,8 +25,10 @@
         
         $stmt = $conn->prepare("INSERT INTO log (country) VALUES (?)");
         $stmt->execute([$_POST["country"]]);
-
+        
     }   
+        $st = $conn->query("SELECT created_at FROM log ORDER BY created_at DESC LIMIT 1");
+        $lastAccess = $st->fetchColumn();
 ?>
 
 <html>
@@ -59,5 +61,6 @@
         </table>
         <p>Total casos confirmados: <?= $totalCases ?>, mortes totais confirmadas: <?= $totalDeaths?></p>
         <?php endif ?>
+        <footer>Ultimo acesso <?= $lastAccess ? $lastAccess : "não existe registro de acesso."  ?></footer>
     </body>
 </html>
