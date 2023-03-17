@@ -15,14 +15,14 @@ class Database
 			$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 			$conn->query("CREATE DATABASE IF NOT EXISTS " . $this->database);
-			$conn->query("CREATE TABLE IF NOT EXISTS todo (
+			$conn->query("CREATE TABLE IF NOT EXISTS log (
 				id INT AUTO_INCREMENT PRIMARY KEY,
-				name VARCHAR(60) NOT NULL
+                country VARCHAR(60) NOT NULL,
+                created_at DATE DEFAULT (CURRENT_DATE)
 			)");
 
 			return $conn;
 		} catch (PDOException $e) {
-			//$conn->rollBack();
 			die($e->getMessage());
 		}
 	}
