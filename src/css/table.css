@@ -1,0 +1,33 @@
+.table-container {
+    width: 80%;
+    margin: 20px auto 0 auto;
+    padding-bottom: 60px;
+}
+
+#t {
+    /*border: 1px solid black;*/
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.table-header {
+    background: rgb(0, 0, 0);
+    color: white;
+    font-weight: 600
+}
+
+#t th, #t td {
+   border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#total {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-top: none;
+}
+
+.total-highlight {
+    font-weight: 600;
+}
